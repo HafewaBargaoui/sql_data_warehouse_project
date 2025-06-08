@@ -24,9 +24,12 @@ BEGIN
 		print '=====================================================================';
 		print 'loading Bronze Layer';
 		print '=====================================================================';
+		
 		print '----------------------------------------------------------------------';
-		print 'Loading the CRM TableS';
+		print 'Loading the CRM Tables';
 		print '----------------------------------------------------------------------';
+		
+		
 		SET @start_time = GETdate();
 		print '>> TRUNCATE TABLE : bronze.crm_cust_info';
 		TRUNCATE TABLE bronze.crm_cust_info;
@@ -41,6 +44,7 @@ BEGIN
 		SET @end_time = GETdate();
 		PRINT'>> Load Duration:' +CAST(DATEDIFF(second, @start_time, @end_time)AS VARCHAR) + 'seconds';
 		PRINT'>> --------------';
+		
 		SET @start_time = GETdate();
 		print '>> TRUNCATE TABLE : bronze.crm_prd_info';
 		TRUNCATE TABLE bronze.crm_prd_info;
@@ -55,6 +59,7 @@ BEGIN
 		SET @end_time = GETdate();
 		PRINT'>> Load Duration:' +CAST(DATEDIFF(second, @start_time, @end_time)AS VARCHAR) + 'seconds';
 		PRINT'>> --------------';
+		
 		SET @start_time = GETdate();
 		print '>> TRUNCATE TABLE : bronze.crm_sales_details';
 		TRUNCATE TABLE bronze.crm_sales_details;
@@ -72,6 +77,7 @@ BEGIN
 		print '----------------------------------------------------------------------';
 		print 'Loading the ERP TableS';
 		print '----------------------------------------------------------------------';
+		
 		SET @start_time = GETdate();
 		print '>> TRUNCATE TABLE : bronze.erp_CUST_AZ12';
 		TRUNCATE TABLE bronze.erp_CUST_AZ12;
@@ -86,6 +92,7 @@ BEGIN
 		SET @end_time = GETdate();
 		PRINT'>> Load Duration:' +CAST(DATEDIFF(second, @start_time, @end_time)AS VARCHAR) + 'seconds';
 		PRINT'>> --------------';
+		
 		SET @start_time = GETdate();
 		print '>> TRUNCATE TABLE : bronze.erp_LOC_A101';
 		TRUNCATE TABLE bronze.erp_LOC_A101;
@@ -100,6 +107,7 @@ BEGIN
 		SET @end_time = GETdate();
 		PRINT'>> Load Duration:' +CAST(DATEDIFF(second, @start_time, @end_time)AS VARCHAR) + 'seconds';
 		PRINT'>> --------------';
+		
 		SET @start_time = GETdate();
 		print '>> TRUNCATE TABLE : bronze.erp_PX_CAT_G1V2';
 		TRUNCATE TABLE bronze.erp_PX_CAT_G1V2;
@@ -114,6 +122,7 @@ BEGIN
 		SET @end_time = GETdate();
 		PRINT'>> Load Duration:' +CAST(DATEDIFF(second, @start_time, @end_time)AS VARCHAR) + 'seconds';
 		PRINT'>> --------------';
+
 		SET @batch_end_time = GETDATE();
 		PRINT'====================================================================='
 		PRINT'Loading Bronz Layer is Completed';
